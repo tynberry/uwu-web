@@ -1,9 +1,8 @@
 use macroquad::prelude::*;
 
-const HOLY_TEXTS: [&str; 3] = [
+const HOLY_TEXTS: [&str; 2] = [
     "UwU",
-    "You got UwUified!",
-    "Enjoy your eternity of servitude to the almighty UwU!"
+    "You got UwUwified!",
 ];
 
 struct MiniUwU {
@@ -43,7 +42,6 @@ async fn main() {
         let dimensions = [
             measure_text(HOLY_TEXTS[0], Some(font), 64, 1.0),
             measure_text(HOLY_TEXTS[1], Some(font), 32, 1.0),
-            measure_text(HOLY_TEXTS[2], Some(font), 32, 1.0),
         ];
 
         //vykresli miniuwu
@@ -67,7 +65,7 @@ async fn main() {
         }
 
         //vykresli hlavní text
-        let celkova_vyska = dimensions[0].height + dimensions[1].height + dimensions[2].height;
+        let celkova_vyska = dimensions[0].height + dimensions[1].height;
 
         draw_text_ex(HOLY_TEXTS[0], 
             canvas_sx / 2.0 - dimensions[0].width / 2.0, 
@@ -82,16 +80,6 @@ async fn main() {
         draw_text_ex(HOLY_TEXTS[1], 
             canvas_sx / 2.0 - dimensions[1].width / 2.0, 
             canvas_sy / 2.0 - celkova_vyska / 2.0 + dimensions[0].height, TextParams { 
-                font, 
-                font_size: 32, 
-                color: color_u8!(0, 255, 255, 255), 
-                ..Default::default()
-            }
-        );
-
-        draw_text_ex(HOLY_TEXTS[2], 
-            canvas_sx / 2.0 - dimensions[2].width / 2.0, 
-            canvas_sy / 2.0 + celkova_vyska / 2.0 - dimensions[2].height, TextParams { 
                 font, 
                 font_size: 32, 
                 color: color_u8!(0, 255, 255, 255), 
